@@ -1,16 +1,35 @@
 <h1 class="h4 text-center mb-4">
   This smart brain will detect faces in your pictures. Give it a try.
 </h1>
-<form class="p-4 form rounded shadow">
+<form
+  [formGroup]="imageLinkForm"
+  class="p-4 form rounded shadow"
+  (ngSubmit)="onSubmit()"
+>
   <div class="row justify-content-between align-items-center">
     <div class="col-12">
       <label for="imageLink" class="col-form-label">Image URL:</label>
     </div>
     <div class="col-8 col-md-10">
-      <input type="text" class="form-control" id="imageLink" />
+      <input
+        type="text"
+        class="form-control"
+        id="imageLink"
+        formControlName="imageLink"
+      />
     </div>
     <div class="col-4 col-md-2">
       <button class="button w-100">Detect</button>
+    </div>
+    <div class="col-auto">
+      <span
+        *ngIf="
+          !imageLinkForm.get('imageLink')?.valid &&
+          imageLinkForm.get('imageLink')?.touched
+        "
+        class="text-danger small"
+        >Invalid image url!</span
+      >
     </div>
   </div>
 </form>
