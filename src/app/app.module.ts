@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgParticlesModule } from 'ng-particles';
 import { NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
 import { boxArrowLeft } from 'ngx-bootstrap-icons';
@@ -24,6 +25,7 @@ const icons = {
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     NgParticlesModule,
     NgxBootstrapIconsModule.pick(icons, {
       width: '1.5rem',
