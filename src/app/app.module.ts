@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ImageLinkFormComponent } from './image-link-form/image-link-form.component';
 import { FaceRecognitionComponent } from './face-recognition/face-recognition.component';
+import { UserRankComponent } from './user-rank/user-rank.component';
 
 const icons = {
   boxArrowLeft,
@@ -19,6 +20,7 @@ const icons = {
     NavigationComponent,
     ImageLinkFormComponent,
     FaceRecognitionComponent,
+    UserRankComponent,
   ],
   imports: [
     BrowserModule,
