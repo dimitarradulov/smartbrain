@@ -10,6 +10,17 @@ img {
   height: auto;
 }
 
+a {
+  color: #fffffe;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+a:hover {
+  color: #64ffda;
+  text-decoration: underline;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -30,6 +41,10 @@ img {
 .py-6 {
   padding-top: 6rem;
   padding-bottom: 6rem;
+}
+
+.form {
+  background-color: #1e2f49;
 }
 
 @media screen and (max-width: 576px) {

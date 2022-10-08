@@ -1,0 +1,124 @@
+<article class="p-4 form rounded shadow">
+  <h1 class="h4 text-center mb-4 fw-bold">Register</h1>
+  <error></error>
+  <form [formGroup]="registerForm" class="mb-4" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+        aria-describedby="name"
+      />
+      <ng-container *ngIf="registerForm.get('name')?.touched">
+        <span
+          *ngIf="registerForm.get('name')?.hasError('required')"
+          class="small text-danger"
+        >
+          This field is required!
+        </span>
+      </ng-container>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+        aria-describedby="emailHelp"
+      />
+      <ng-container *ngIf="registerForm.get('email')?.touched">
+        <span
+          *ngIf="registerForm.get('email')?.hasError('required')"
+          class="small text-danger"
+        >
+          This field is required!
+        </span>
+        <span
+          *ngIf="registerForm.get('email')?.hasError('email')"
+          class="small text-danger"
+        >
+          Invalid email!
+        </span>
+      </ng-container>
+    </div>
+    <div formGroupName="passwords">
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          formControlName="password"
+        />
+        <ng-container
+          *ngIf="registerForm.get('passwords')?.get('password')?.touched"
+        >
+          <span
+            *ngIf="
+              registerForm
+                .get('passwords')
+                ?.get('password')
+                ?.hasError('required')
+            "
+            class="small text-danger"
+          >
+            This field is required!
+          </span>
+          <span
+            *ngIf="
+              registerForm
+                .get('passwords')
+                ?.get('password')
+                ?.hasError('minlength')
+            "
+            class="small text-danger"
+          >
+            Invalid password (at least 6 characters)!
+          </span>
+        </ng-container>
+      </div>
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          formControlName="confirmPassword"
+        />
+        <ng-container
+          *ngIf="registerForm.get('passwords')?.get('confirmPassword')?.touched"
+        >
+          <span
+            *ngIf="
+              registerForm
+                .get('passwords')
+                ?.get('confirmPassword')
+                ?.hasError('required')
+            "
+            class="small text-danger"
+          >
+            This field is required!
+          </span>
+          <span
+            *ngIf="registerForm.get('passwords')?.hasError('passwordMismatch')"
+            class="small text-danger"
+          >
+            Passwords does not match!
+          </span>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="button">Register</button>
+    </div>
+  </form>
+  <div class="text-center">
+    <a routerLink="../sign-in" class="cursor-pointer">Sign In</a>
+  </div>
+</article>
+
+<loading></loading>

@@ -33,6 +33,8 @@ export class ImageLinkFormComponent implements OnInit {
 
     this.faceRecognitionService.retrieveImageLink(imageLink);
 
+    this.faceRecognitionService.getImagePrediction().subscribe();
+
     this.imageLinkForm.reset();
   }
 }

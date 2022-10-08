@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+
+import { AuthService } from '../auth/auth.service';
+import { User } from '../shared/models/user.model';
 
 @Component({
   selector: 'navigation',
@@ -6,7 +11,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css'],
 })
 export class NavigationComponent implements OnInit {
-  constructor() {}
+  user$: Observable<User | null>;
 
-  ngOnInit(): void {}
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.user$ = this.authService.user$;
+  }
+
+  signOut() {
+    this.authService.logout();
+    this.router.navigate(['sign-in']);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { loadFull } from 'tsparticles';
 import {
   MoveDirection,
@@ -8,13 +8,14 @@ import {
   Container,
   Engine,
 } from 'tsparticles-engine';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   id = 'tsparticles';
 
   particlesOptions = {
@@ -84,6 +85,12 @@ export class AppComponent {
     },
     detectRetina: true,
   };
+
+  constructor(private authService: AuthService) {
+    authService.autoLogin();
+  }
+
+  ngOnInit(): void {}
 
   particlesLoaded(container: Container): void {
     console.log(container);

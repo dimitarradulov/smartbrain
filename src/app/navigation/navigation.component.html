@@ -1,18 +1,34 @@
 <header class="d-flex justify-content-between align-items-center p-3">
-  <div class="logo-outside cursor-pointer">
+  <div class="logo-outside cursor-pointer" routerLink="/">
     <div class="logo-inside">
       <img src="../../assets/brain.png" alt="brain" class="logo-image" />
     </div>
   </div>
 
   <nav>
-    <ul class="list-unstyled">
-      <li>
-        <a href="#" class="cursor-pointer"
-          ><i-bs name="box-arrow-left"></i-bs>
-          <span class="ms-2">Sign Out</span></a
-        >
-      </li>
+    <ul class="d-flex gap-4 list-unstyled">
+      <ng-container *ngIf="!(user$ | async); else notAuthenticated">
+        <li>
+          <a routerLink="sign-in" class="cursor-pointer"
+            ><i-bs name="box-arrow-in-right"></i-bs>
+            <span class="ms-2">Sign In</span></a
+          >
+        </li>
+        <li>
+          <a routerLink="register" class="cursor-pointer"
+            ><i-bs name="person-plus"></i-bs>
+            <span class="ms-2">Register</span></a
+          >
+        </li>
+      </ng-container>
+      <ng-template #notAuthenticated>
+        <li>
+          <a (click)="signOut()" class="cursor-pointer"
+            ><i-bs name="box-arrow-left"></i-bs>
+            <span class="ms-2">Sign Out</span></a
+          >
+        </li>
+      </ng-template>
     </ul>
   </nav>
 </header>

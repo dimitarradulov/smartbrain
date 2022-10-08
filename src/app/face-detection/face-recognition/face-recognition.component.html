@@ -1,0 +1,29 @@
+<ng-container *ngIf="data$ | async as data">
+  <div
+    *ngIf="data['imageLink'] && data['predictionData']?.length"
+    class="d-flex justify-content-center"
+  >
+    <div class="text-center mt-3 position-absolute">
+      <img
+        #imageEl
+        src="{{ data['imageLink'] }}"
+        alt="input image"
+        style="width: 500px"
+      />
+      <div
+        class="bounding-box"
+        *ngFor="let clarifaiData of data['predictionData']"
+        [faceDetectionBox]="clarifaiData"
+        [image]="imageEl"
+      ></div>
+    </div>
+  </div>
+</ng-container>
+
+<div
+  *ngIf="loadingService.loading$ | async"
+  class="spinner-border text-primary"
+  role="status"
+>
+  <span class="visually-hidden">Loading...</span>
+</div>

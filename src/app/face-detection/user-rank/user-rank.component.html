@@ -1,0 +1,4 @@
+<div *ngIf="user$ | async as user" class="fw-bold text-center">
+  <p>{{ user.name }}, your entry count is...</p>
+  <p class="fs-3">{{ entries$ | async }}</p>
+</div>
