@@ -1,4 +1,5 @@
 export const environment = {
-  baseUrl: 'http://localhost:3000',
+  baseUrl:
+    'http://smartbrainapi-env.eba-nrthtvcp.eu-central-1.elasticbeanstalk.com',
   production: true,
 };
