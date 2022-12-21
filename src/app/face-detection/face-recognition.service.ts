@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, forkJoin, Observable, of } from 'rxjs';
 import { map, shareReplay, tap, switchMap, take } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
@@ -60,10 +60,17 @@ export class FaceRecognitionService {
   incrementUserEntryCount() {
     return this.authService.user$.pipe(
       take(1),
-      switchMap((user) =>
-        this.http.put<number>(`${environment.baseUrl}/image`, { id: user?.id })
-      ),
-      tap((entries) => this.entriesChange.next(entries))
+      switchMap((user) => {
+        const incrementEntry$ = this.http.put<number>(
+          `${environment.baseUrl}/image`,
+          { id: user?.id }
+        );
+        return forkJoin([of(user), incrementEntry$]);
+      }),
+      tap(([user, entries]) => {
+        this.entriesChange.next(entries);
+        localStorage.setItem('user', JSON.stringify({ ...user, entries }));
+      })
     );
   }
 
