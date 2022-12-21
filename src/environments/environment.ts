@@ -3,8 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  baseUrl:
-    'http://smartbrainapi-env.eba-nrthtvcp.eu-central-1.elasticbeanstalk.com',
+  baseUrl: 'https://smartbrain-api-production.up.railway.app',
   production: false,
 };
 
