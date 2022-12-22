@@ -1,27 +1,28 @@
-# Smartbrain
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+## 🧠 SmartBrain
+![SmartBrain](./src/assets/app-preview.png)
+This is a project based on [this amazing course](https://www.udemy.com/course/the-complete-web-developer-zero-to-mastery/) by Andrei Neagoie. It introduced me to all the modern technologies and tools in order to built full-stack applications.
 
-## Development server
+This is the final application of the course. The difference is in the UI design and the frontend framework which is used - I built it with Angular whilst in the course it is built with React. The decision to go with Angular was based on my prior knowaldge of the framework.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀Technologies used
+- Angular v14
+- [Node.js + Express Backend API](https://github.com/dimitarradulov/smartbrain-api)
+- RxJS	
+- TypeScript
+- Bootstrap
+- Clarifai API
+- tsParticles
 
-## Code scaffolding
+## ▶️Quick preview
+You can check out the app here: <a href="https://smartbrain-seven.vercel.app/" target="_blank">SmartBrain</a> 
+*(WARNING: Opens in the same tab)*
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 👩‍💻 Setup 
+To run this project install it locally using npm:
+```
+$ git clone https://github.com/dimitarradulov/smartbrain.git
+$ cd smartbrain
+$ npm install
+$ npm start
+```
