@@ -8,6 +8,7 @@ This is the final application of the course. The difference is in the UI design 
 ## 🚀Technologies used
 - Angular v14
 - [Node.js + Express Backend API](https://github.com/dimitarradulov/smartbrain-api)
+- PostgreSQL
 - RxJS	
 - TypeScript
 - Bootstrap
