@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  baseUrl: 'https://smartbrain-api-production.up.railway.app',
+  baseUrl: 'https://smartbrain-api-ak7b.onrender.com',
   production: false,
 };
 
